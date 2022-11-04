@@ -2,24 +2,37 @@ body{
     background-image: url(https://images.unsplash.com/photo-1590959651373-a3db0f38a961?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=739&q=80);
     background-size: cover;
 }
-
 h1{
    color:#FFD1D1;
    text-align: center;
 }
-
 form{
    text-align: center;
 }
-
 input{
    background:none ;
    width: 150px;
    height: 20px;
 }
-
 #group-message{
   color: antiquewhite;
   margin: 30px 150px;
   border: 5px solid pink;
+}
+
+#message{
+   color:antiquewhite;
+   border: 5px solid yellowgreen;
+   margin: 30px 150px;
+}
+
+#showAddUser
+{
+   color: bisque;
+   border: 5px solid plum;
+   margin: 30px 150px;
+}
+
+button{
+    color: red;
 }

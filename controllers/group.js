@@ -11,7 +11,7 @@ exports.groupMessage = (req,res)=>{
      groupChat.create({GroupName})
      .then(group =>{
        const groupId = group.id;
-       userGroup.create({groupChatId : groupId, userId : req.user.id})
+       userGroup.create({groupChatId : groupId, userId : req.user.id , isAdmin:true})
        .then(userGroup =>{
         res.status(201).json({message:"created"})
        })
@@ -24,14 +24,14 @@ exports.groupMessage = (req,res)=>{
  }
 
  exports.groupdetails = (req,res)=>{
-  userGroup.findAll({where:{userId:req.user.id},include: [
+  userGroup.findAll({where:{userId:req.user.id},isAdmin:true,include: [
     {
       model: groupChat,
       required: false,
     }
   ]})
   .then(result =>{
-    res.status(200).json({data:result,message:"success"})
+    res.status(200).json({data:result,user:req.user,message:"success"})
   })
   .catch(err =>{
     res.status(500).json({message:"failed"})
@@ -73,7 +73,7 @@ exports.addUser = (req,res)=>{
   user.findOne({where :{name:name}})
   .then(user =>{
     console.log(user.id,"userid muzammil hhxjkshaikh ")
-    userGroup.create({userId:user.id,groupChatId:groupid})
+    userGroup.create({userId:user.id,groupChatId:groupid , isAdmin:false})
     .then(result=>{
       res.status(201).json({message:"created"})
     })
@@ -92,7 +92,7 @@ exports.getUser = (req,res)=>{
     }
   ]})
   .then(result =>{
-    res.status(200).json({data:result , message:"successful"})
+    res.status(200).json({data:result , message:"successful" , Address:req.user})
   })
   .catch(err =>{
     res.status(500).json({message:"failed"})
@@ -101,10 +101,37 @@ exports.getUser = (req,res)=>{
 
 exports.deleteUser = (req,res)=>{
   const groupid = req.params.id;
-  const userId = req.body.id;
+  const userId = req.body.userid;
+  console.log("gROUPiD DEKTEHSJ",groupid,userId)
   userGroup.destroy({where:{groupChatId:groupid , userId:userId}})
   .then(result =>{
     res.status(200).json({message:"deleted"})
+  })
+  .catch(err =>{
+    res.status(500).json({message:"failed"})
+  })
+}
+
+exports.MakeAdmin = (req,res)=>{
+  const groupid = req.params.id;
+  const userId = req.body.userid;
+
+  userGroup.update(  {isAdmin:true} , {where:{groupChatId:groupid , userId:userId}})
+  .then(result =>{
+    res.status(200).json({message:"made Admin"})
+  })
+  .catch(err =>{
+    res.status(500).json({message:"failed"})
+  })
+}
+
+exports.RemoveAdmin = (req,res)=>{
+  const groupid = req.params.id;
+  const userId = req.body.userid;
+
+  userGroup.update(  {isAdmin:false} , {where:{groupChatId:groupid , userId:userId}})
+  .then(result =>{
+    res.status(200).json({message:"REmove Admin"})
   })
   .catch(err =>{
     res.status(500).json({message:"failed"})
