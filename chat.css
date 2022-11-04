@@ -1,0 +1,116 @@
+body
+{
+    background-color: #E3FDFD;
+}
+
+.signup-img-heading
+{
+    display: flex;
+    margin: 10px 250px;
+    background-color: #A6E3E9;
+}
+
+.signup-image
+{
+    margin: 5px 155px ;
+}
+
+
+.heading-group-chat
+{
+    color: #00ADB5;
+    margin: 35px 25px;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.signup-display
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.signup-details
+{
+    margin:50px 150px;
+    background-color: #A6E3E9;
+    border : 5px solid #CBF1F5;
+    border-radius: 15px;
+    width: 400px;
+    height: 500px;
+}
+
+h1{
+    color:#6F4C5B;
+     font-size: 30px;
+     text-align: center;
+     font-weight: bolder;
+}
+
+label
+{
+    color:#00ADB5;
+    font-size: 18px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-left: 60px;
+    background: none;
+}
+
+input{
+    width: 220px;
+    height: 20px;
+    background: none;
+    border-radius: 5px;
+    border:2px solid #00ADB5;
+    margin-left: 60px;
+}
+
+#signup-btn
+{
+    margin:50px 125px;
+    font-size: 25px;
+    background: none;
+    color:#00ADB5;
+    border: 3px solid #00ADB5;
+}
+
+.login-details
+{
+    margin:50px 250px;
+    background-color: #71C9CE;
+    border : 5px solid #58adad;
+    color: #E3FDFD;
+    border-radius: 15px;
+    width: 500px;
+    height: 500px;
+}
+
+.input-login
+{
+    width:200px;
+     height:30px;
+     border-radius: 10px;
+     margin: 5px 60px;
+     border : 5px solid #E3FDFD;
+}
+
+.login-form
+{
+    margin: 65px 30px;
+}
+
+.label-input
+{
+    font-size: 20px;
+    color: #E3FDFD;
+}
+
+#login-btn
+{
+    margin: 20px 125px;
+    font-size: 25px;
+    border-radius: 5px;
+    border : 5px solid #E3FDFD;
+    background: none;
+    color: #E3FDFD;
+}
