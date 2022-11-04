@@ -1,3 +1,5 @@
+
+
 function signup(e)
 {
     e.preventDefault();
@@ -37,9 +39,10 @@ function login(e)
     }
     console.log(loginDetails)
     axios.post("http://localhost:3000/login",loginDetails)
-    .then(result=>{
+    .then(response=>{
         alert("login successfully")
-        console.log(result)
-        window.location="chat.html"
+        console.log(response)
+        window.location="group.html"
+        localStorage.setItem('token',response.data.token)
     })
 }

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GROUP CHAT</title>
+    <link rel="stylesheet" href="group.css">
+</head>
+<body>
+    <h1> GROUP CHAT</h1>
+    <div>
+        <form onsubmit="createdGroup(event)">
+            <input type="text" name="group">
+            <button type="submit">ENTER</button>
+        </form>
+        <div class="group-message-div">
+            <ul id="group-message"></ul>
+        </div>
+        <div id="message">        
+        </div>
+        <div id ="data"></div>
+        <div id="addUser"></div>
+        <div id="showAddUser"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+    <script src="group.js"></script>
+</body>
+</html>
